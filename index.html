@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vāk Shakti — Vedic Intelligence & The AI Challenge</title>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+Devanagari:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron: #C8601A;
+  --deep-saffron: #8B3A08;
+  --gold: #D4A017;
+  --deep-gold: #9A6F00;
+  --cream: #FAF6EE;
+  --parchment: #F0E8D5;
+  --dark-ink: #1A1208;
+  --mid-ink: #3D2B10;
+  --muted: #7A6040;
+  --teal: #1B6B6B;
+  --deep-teal: #0D4040;
+  --lotus: #C0456B;
+  --deep-lotus: #7A1F3D;
+  --bg: #FBF7F0;
+  --border: rgba(200,96,26,0.18);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Crimson Pro', Georgia, serif;
+  background: var(--bg);
+  color: var(--dark-ink);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(251,247,240,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 56px;
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600;
+  color: var(--saffron); letter-spacing: 0.04em;
+}
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a {
+  font-size: 0.78rem; font-weight: 400;
+  color: var(--muted); text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--saffron); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 100px 2rem 4rem;
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(212,160,23,0.08) 0%, transparent 70%),
+    linear-gradient(180deg, #FAF3E5 0%, #FBF7F0 100%);
+  overflow: hidden;
+}
+.hero-mandala {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 700px; height: 700px; opacity: 0.04;
+  animation: rotateSlow 120s linear infinite;
+}
+@keyframes rotateSlow { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem; letter-spacing: 0.2em;
+  color: var(--saffron); text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid rgba(200,96,26,0.3);
+  border-radius: 2px;
+  display: inline-block;
+}
+.hero-sanskrit {
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 300; line-height: 1.15;
+  color: var(--deep-saffron); letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+  font-weight: 300; line-height: 1.3;
+  color: var(--mid-ink); max-width: 780px;
+  margin-bottom: 2rem;
+}
+.hero-subtitle {
+  font-size: 1.15rem; color: var(--muted);
+  max-width: 600px; line-height: 1.8;
+  margin-bottom: 3rem;
+}
+.hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.btn-primary {
+  background: var(--saffron); color: #fff;
+  border: none; padding: 0.85rem 2.2rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  cursor: pointer; border-radius: 2px;
+  transition: background 0.2s, transform 0.15s;
+  text-decoration: none; display: inline-block;
+}
+.btn-primary:hover { background: var(--deep-saffron); transform: translateY(-1px); }
+.btn-secondary {
+  background: transparent; color: var(--saffron);
+  border: 1px solid var(--saffron);
+  padding: 0.85rem 2.2rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  cursor: pointer; border-radius: 2px;
+  transition: all 0.2s; text-decoration: none; display: inline-block;
+}
+.btn-secondary:hover { background: var(--saffron); color: #fff; }
+
+.hero-scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted); animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+/* ── SECTIONS ── */
+section { padding: 6rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--saffron); margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 300; line-height: 1.25;
+  color: var(--mid-ink); margin-bottom: 1.5rem;
+}
+.section-lead {
+  font-size: 1.2rem; line-height: 1.85; color: var(--muted);
+  max-width: 720px; margin-bottom: 3rem;
+}
+hr.ornament {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 4rem 0;
+}
+
+/* ── INTELLIGENCE LEVELS ── */
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 0;
+  border: 1px solid var(--border);
+}
+.level-card {
+  padding: 2.5rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+  transition: background 0.3s;
+}
+.level-card:hover { background: rgba(212,160,23,0.04); }
+.level-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem; font-weight: 300;
+  color: rgba(200,96,26,0.08);
+  position: absolute; top: -0.5rem; right: 1rem;
+  line-height: 1; pointer-events: none;
+}
+.level-badge {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  background: var(--parchment);
+  border: 1px solid var(--border);
+  color: var(--saffron);
+  margin-bottom: 1rem; border-radius: 1px;
+}
+.level-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 400; color: var(--dark-ink);
+  margin-bottom: 0.3rem;
+}
+.level-sanskrit {
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: 1.1rem; color: var(--saffron);
+  margin-bottom: 1rem; display: block;
+}
+.level-desc { font-size: 1rem; line-height: 1.75; color: var(--muted); margin-bottom: 1.2rem; }
+.level-source {
+  font-size: 0.82rem; font-style: italic;
+  color: var(--deep-teal); border-top: 1px solid var(--border);
+  padding-top: 0.8rem; margin-top: 0.8rem;
+}
+
+/* ── TEXT SOURCES ── */
+#texts { background: linear-gradient(180deg, #FBF7F0 0%, #F5EDDA 100%); }
+.texts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem; margin-top: 3rem;
+}
+.text-card {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  border-radius: 2px;
+  position: relative;
+}
+.text-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.text-card.rudram::before { background: var(--saffron); }
+.text-card.lalitha::before { background: var(--lotus); }
+.text-card.devi::before { background: var(--teal); }
+.text-card.durga::before { background: var(--gold); }
+.text-icon {
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: 2.5rem; margin-bottom: 1rem; display: block;
+}
+.text-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem; font-weight: 600;
+  color: var(--dark-ink); margin-bottom: 0.3rem;
+}
+.text-sub { font-size: 0.85rem; color: var(--muted); font-style: italic; margin-bottom: 1rem; }
+.text-desc { font-size: 0.95rem; line-height: 1.7; color: var(--mid-ink); }
+
+/* ── MANTRAS ── */
+#mantras { background: var(--dark-ink); color: var(--cream); }
+#mantras .section-title { color: var(--gold); }
+#mantras .section-lead { color: rgba(250,246,238,0.65); }
+#mantras .section-label { color: var(--gold); }
+.mantras-accordion { margin-top: 3rem; }
+.mantra-item {
+  border-bottom: 1px solid rgba(200,96,26,0.2);
+  overflow: hidden;
+}
+.mantra-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.8rem 0; cursor: pointer;
+  transition: opacity 0.2s;
+}
+.mantra-header:hover { opacity: 0.8; }
+.mantra-meta { display: flex; align-items: center; gap: 1.5rem; }
+.mantra-level-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.18em;
+  padding: 0.2rem 0.6rem;
+  background: rgba(200,96,26,0.2);
+  color: var(--gold); border: 1px solid rgba(212,160,23,0.3);
+}
+.mantra-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-weight: 400; color: var(--cream);
+}
+.mantra-source { font-size: 0.82rem; color: rgba(250,246,238,0.5); font-style: italic; }
+.mantra-toggle { color: var(--gold); font-size: 1.2rem; transition: transform 0.3s; }
+.mantra-item.open .mantra-toggle { transform: rotate(45deg); }
+.mantra-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 0;
+}
+.mantra-item.open .mantra-body { max-height: 800px; }
+.mantra-content { padding: 0 0 2.5rem; }
+.mantra-sanskrit-text {
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: 1.3rem; line-height: 2;
+  color: var(--gold); margin-bottom: 1.2rem;
+  padding: 1.5rem 2rem;
+  background: rgba(212,160,23,0.07);
+  border-left: 3px solid var(--gold);
+}
+.mantra-transliteration {
+  font-size: 0.9rem; font-style: italic;
+  color: rgba(250,246,238,0.55);
+  margin-bottom: 1.2rem; line-height: 1.7;
+}
+.mantra-meaning {
+  font-size: 1rem; line-height: 1.8;
+  color: rgba(250,246,238,0.8);
+  margin-bottom: 1.2rem;
+}
+.mantra-intelligence {
+  padding: 1rem 1.5rem;
+  background: rgba(27,107,107,0.15);
+  border: 1px solid rgba(27,107,107,0.3);
+  border-radius: 2px;
+}
+.mantra-intel-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--teal);
+  margin-bottom: 0.5rem; display: block;
+}
+.mantra-intel-text { font-size: 0.95rem; color: rgba(250,246,238,0.7); line-height: 1.7; }
+
+/* ── AI CHALLENGE ── */
+#ai-challenge {
+  background: linear-gradient(135deg, #0D2A2A 0%, #0A1A1A 100%);
+  color: var(--cream);
+  position: relative; overflow: hidden;
+}
+#ai-challenge::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231B6B6B' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+#ai-challenge .section-title { color: #7FFFD4; }
+#ai-challenge .section-label { color: rgba(127,255,212,0.7); }
+#ai-challenge .section-lead { color: rgba(250,246,238,0.65); }
+.challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem; margin-top: 3rem; position: relative; z-index: 1;
+}
+.challenge-card {
+  padding: 2rem;
+  background: rgba(27,107,107,0.12);
+  border: 1px solid rgba(27,107,107,0.3);
+  border-radius: 2px;
+  transition: border-color 0.3s;
+}
+.challenge-card:hover { border-color: rgba(127,255,212,0.4); }
+.challenge-number {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem; color: rgba(127,255,212,0.6);
+  letter-spacing: 0.1em; margin-bottom: 0.8rem; display: block;
+}
+.challenge-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 400;
+  color: #7FFFD4; margin-bottom: 0.8rem;
+}
+.challenge-body { font-size: 0.95rem; line-height: 1.75; color: rgba(250,246,238,0.65); }
+.ai-vs-vedic {
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  gap: 2rem; align-items: center;
+  margin-top: 4rem; padding: 3rem;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(27,107,107,0.3);
+  position: relative; z-index: 1;
+}
+.ai-column { }
+.ai-col-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.ai-col-label.ai { color: rgba(127,255,212,0.7); }
+.ai-col-label.vedic { color: var(--gold); }
+.ai-vs-divider {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem; color: rgba(250,246,238,0.15);
+  text-align: center;
+}
+.compare-row { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.2rem; }
+.compare-icon { font-size: 1.2rem; margin-top: 0.1rem; }
+.compare-text { font-size: 0.9rem; line-height: 1.6; color: rgba(250,246,238,0.65); }
+.compare-text strong { color: rgba(250,246,238,0.9); font-weight: 400; }
+
+/* ── SIX LEVELS DETAILED ── */
+#six-levels { background: var(--cream); }
+.levels-tabs { display: flex; gap: 0; margin-bottom: 0; overflow-x: auto; }
+.level-tab {
+  padding: 0.9rem 1.5rem;
+  border: 1px solid var(--border); border-bottom: none;
+  background: transparent; cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.1em;
+  color: var(--muted); white-space: nowrap;
+  transition: all 0.2s; margin-right: -1px;
+}
+.level-tab:hover, .level-tab.active {
+  background: var(--cream);
+  color: var(--saffron);
+  border-bottom: 1px solid var(--cream);
+  z-index: 1; position: relative;
+}
+.level-panel {
+  display: none; border: 1px solid var(--border);
+  padding: 3rem; background: var(--cream);
+}
+.level-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.panel-left { }
+.panel-right { }
+.panel-big-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8rem; font-weight: 300; line-height: 1;
+  color: rgba(200,96,26,0.1); margin-bottom: -2rem;
+}
+.panel-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem; font-weight: 400;
+  color: var(--dark-ink); margin-bottom: 0.5rem;
+}
+.panel-sanskrit {
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: 1.5rem; color: var(--saffron);
+  margin-bottom: 1.5rem; display: block;
+}
+.panel-desc { font-size: 1.05rem; line-height: 1.85; color: var(--muted); margin-bottom: 2rem; }
+.shloka-box {
+  background: var(--parchment);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--saffron);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+.shloka-source {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--saffron);
+  margin-bottom: 0.8rem; display: block;
+}
+.shloka-sanskrit {
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: 1.15rem; line-height: 1.9;
+  color: var(--deep-saffron); margin-bottom: 0.8rem;
+}
+.shloka-roman { font-size: 0.85rem; font-style: italic; color: var(--muted); margin-bottom: 0.8rem; line-height: 1.7; }
+.shloka-meaning { font-size: 0.95rem; line-height: 1.75; color: var(--mid-ink); }
+.panel-abilities { list-style: none; }
+.panel-abilities li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.95rem; color: var(--mid-ink);
+  display: flex; align-items: flex-start; gap: 0.8rem;
+}
+.panel-abilities li::before {
+  content: '◆'; color: var(--saffron);
+  font-size: 0.5rem; margin-top: 0.45rem; flex-shrink: 0;
+}
+.panel-ai-note {
+  margin-top: 1.5rem; padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(27,107,107,0.08), rgba(27,107,107,0.04));
+  border: 1px solid rgba(27,107,107,0.2);
+}
+.panel-ai-note-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 0.5rem; display: block;
+}
+.panel-ai-note-text { font-size: 0.9rem; line-height: 1.7; color: var(--mid-ink); }
+
+/* ── AUDIENCE TRACKS ── */
+#audience { background: var(--bg); }
+.audience-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem; margin-top: 3rem;
+}
+.audience-card {
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  text-align: center; transition: transform 0.2s, box-shadow 0.2s;
+}
+.audience-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(200,96,26,0.08); }
+.audience-icon { font-size: 2.8rem; margin-bottom: 1.2rem; display: block; }
+.audience-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 400;
+  color: var(--dark-ink); margin-bottom: 0.8rem;
+}
+.audience-desc { font-size: 0.92rem; line-height: 1.75; color: var(--muted); margin-bottom: 1.5rem; }
+.audience-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+.tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.1em;
+  padding: 0.25rem 0.7rem;
+  background: var(--parchment);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+/* ── RESEARCH ── */
+#research { background: #F5EDDA; }
+.research-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.research-list { list-style: none; margin-top: 2rem; }
+.research-list li {
+  padding: 1.2rem 0; border-bottom: 1px solid var(--border);
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.research-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem; color: var(--saffron);
+  padding-top: 0.15rem; flex-shrink: 0;
+}
+.research-title { font-weight: 400; color: var(--dark-ink); font-size: 0.98rem; margin-bottom: 0.3rem; }
+.research-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark-ink); color: rgba(250,246,238,0.5);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+}
+.footer-om {
+  font-family: 'Noto Sans Devanagari', serif;
+  font-size: 4rem; color: rgba(212,160,23,0.4);
+  margin-bottom: 1.5rem; display: block;
+  animation: pulse 4s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:0.7} }
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-style: italic;
+  color: rgba(212,160,23,0.7); margin-bottom: 1rem;
+}
+.footer-copy { font-size: 0.82rem; letter-spacing: 0.08em; }
+
+/* ── PROGRESS BAR ── */
+#progress-bar {
+  position: fixed; top: 56px; left: 0; height: 2px;
+  background: var(--saffron); z-index: 99;
+  width: 0%; transition: width 0.1s;
+}
+
+/* ── UTIL ── */
+.text-center { text-align: center; }
+.mt-4 { margin-top: 4rem; }
+
+@media (max-width: 700px) {
+  .level-panel.active { grid-template-columns: 1fr; }
+  .research-cols { grid-template-columns: 1fr; }
+  .ai-vs-vedic { grid-template-columns: 1fr; }
+  .ai-vs-divider { display: none; }
+  nav .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<nav>
+  <span class="nav-brand">वाक् शक्ति · Vāk Shakti</span>
+  <ul class="nav-links">
+    <li><a href="#texts">Texts</a></li>
+    <li><a href="#six-levels">6 Levels</a></li>
+    <li><a href="#mantras">Mantras</a></li>
+    <li><a href="#ai-challenge">AI Challenge</a></li>
+    <li><a href="#audience">For You</a></li>
+    <li><a href="#research">Research</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <svg class="hero-mandala" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="350" cy="350" r="340" stroke="#C8601A" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="280" stroke="#C8601A" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="220" stroke="#C8601A" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="160" stroke="#D4A017" stroke-width="0.5"/>
+    <circle cx="350" cy="350" r="100" stroke="#D4A017" stroke-width="1"/>
+    <circle cx="350" cy="350" r="40" stroke="#D4A017" stroke-width="1"/>
+    <!-- petals -->
+    <g stroke="#C8601A" stroke-width="0.5" fill="none">
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(0 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(30 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(60 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(90 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(120 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(150 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(180 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(210 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(240 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(270 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(300 350 350)"/>
+      <ellipse cx="350" cy="210" rx="18" ry="50" transform="rotate(330 350 350)"/>
+    </g>
+    <line x1="10" y1="350" x2="690" y2="350" stroke="#D4A017" stroke-width="0.3"/>
+    <line x1="350" y1="10" x2="350" y2="690" stroke="#D4A017" stroke-width="0.3"/>
+    <line x1="103" y1="103" x2="597" y2="597" stroke="#D4A017" stroke-width="0.3"/>
+    <line x1="597" y1="103" x2="103" y2="597" stroke="#D4A017" stroke-width="0.3"/>
+  </svg>
+
+  <span class="hero-eyebrow">Ancient Wisdom · Modern Intelligence · AI Challenge</span>
+  <h1 class="hero-sanskrit">वाक् शक्ति — बुद्धि के षट् स्तर</h1>
+  <h2 class="hero-title">Six Levels of Human Intelligence Hidden in the Sacred Mantras of India</h2>
+  <p class="hero-subtitle">
+    Exploring how Śrī Rudram Namakam &amp; Chamakam, Lalitā Sahasranāma, Devī Khaḍgamālā, and Durgā Saptashatī encode a complete map of human cognitive evolution — and how this challenges Artificial Intelligence at its deepest limits.
+  </p>
+  <div class="hero-cta-row">
+    <a class="btn-primary" href="#six-levels">Explore the Six Levels</a>
+    <a class="btn-secondary" href="#ai-challenge">The AI Challenge</a>
+  </div>
+  <span class="hero-scroll-hint">↓ scroll to begin</span>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">Introduction</p>
+    <h2 class="section-title">The Oldest Science of Mind</h2>
+    <p class="section-lead">
+      Long before neuroscience named its layers, before psychologists theorized levels of cognition, the Vedic rishis encoded a profound map of human intelligence — not in academic texts, but in the living vibration of mantra. This portal reveals those hidden architectures, draws them into dialogue with modern cognitive science, and poses them as challenges to Artificial Intelligence.
+    </p>
+
+    <div class="levels-grid">
+      <div class="level-card">
+        <span class="level-number">I</span>
+        <span class="level-badge">Level One</span>
+        <h3 class="level-title">Sensory & Perceptual Intelligence</h3>
+        <span class="level-sanskrit">ज्ञानेन्द्रिय शक्ति</span>
+        <p class="level-desc">The ability to absorb, refine and integrate raw sensory data into coherent perception — seeing patterns in noise, sounds in silence, meaning in sensation.</p>
+        <p class="level-source">Anchored in Śrī Rudram Namakam — Anuvāka 1: invocation of Rudra's omnipresence in all sensory fields.</p>
+      </div>
+
+      <div class="level-card">
+        <span class="level-number">II</span>
+        <span class="level-badge">Level Two</span>
+        <h3 class="level-title">Rational & Analytical Intelligence</h3>
+        <span class="level-sanskrit">मेधा शक्ति</span>
+        <p class="level-desc">The systematic faculty of logic, discrimination, and structured reasoning — Buddhi in its sharpest form, distinguishing truth from illusion.</p>
+        <p class="level-source">Lalitā Sahasranāma — Names 563–580: Mahā-Māyā cluster describing the intellect that pierces illusion.</p>
+      </div>
+
+      <div class="level-card">
+        <span class="level-number">III</span>
+        <span class="level-badge">Level Three</span>
+        <h3 class="level-title">Creative & Intuitive Intelligence</h3>
+        <span class="level-sanskrit">प्रतिभा शक्ति</span>
+        <p class="level-desc">The leap beyond data — inspiration, artistic synthesis, and the flash of intuition that creates what has never existed before.</p>
+        <p class="level-source">Devī Khaḍgamālā — Invocation of the fifty-six Shaktis of creative manifestation.</p>
+      </div>
+
+      <div class="level-card">
+        <span class="level-number">IV</span>
+        <span class="level-badge">Level Four</span>
+        <h3 class="level-title">Emotional & Relational Intelligence</h3>
+        <span class="level-sanskrit">हृदय शक्ति</span>
+        <p class="level-desc">The intelligence of compassion, empathy and interconnection — perceiving the emotional reality of others and responding with wisdom and care.</p>
+        <p class="level-source">Durgā Saptashatī — Chapters 1–4: Mahākālī's dissolution of ego-boundaries and awakening of universal feeling.</p>
+      </div>
+
+      <div class="level-card">
+        <span class="level-number">V</span>
+        <span class="level-badge">Level Five</span>
+        <h3 class="level-title">Meta-Cognitive Intelligence</h3>
+        <span class="level-sanskrit">विवेक शक्ति</span>
+        <p class="level-desc">Awareness watching awareness — the capacity to observe one's own thinking, correct one's own errors, and know the limits of one's knowledge.</p>
+        <p class="level-source">Śrī Rudram Chamakam — Anuvāka 10–11: the deepest self-offerings, transcending the individual mind.</p>
+      </div>
+
+      <div class="level-card">
+        <span class="level-number">VI</span>
+        <span class="level-badge">Level Six</span>
+        <h3 class="level-title">Transcendent & Unitive Intelligence</h3>
+        <span class="level-sanskrit">प्रज्ञा शक्ति</span>
+        <p class="level-desc">Prajñā — the direct knowing that requires no process, the intelligence of pure Being that underlies all other intelligences as their silent ground.</p>
+        <p class="level-source">Lalitā Sahasranāma — Names 999–1000: Mahātripurasundarī as supreme consciousness itself.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="ornament" style="margin: 0 2rem;">
+
+<!-- ── TEXTS ── -->
+<section id="texts">
+  <div class="container">
+    <p class="section-label">The Four Sacred Sources</p>
+    <h2 class="section-title">Scriptures That Map the Mind</h2>
+    <p class="section-lead">
+      Four towering works of the Śākta and Śaiva traditions, each approaching the mystery of consciousness from a different angle, together forming a complete topology of human intelligence.
+    </p>
+
+    <div class="texts-grid">
+      <div class="text-card rudram">
+        <span class="text-icon">रु</span>
+        <p class="text-name">Śrī Rudram</p>
+        <p class="text-sub">Namakam &amp; Chamakam · Kṛṣṇa Yajurveda</p>
+        <p class="text-desc">Comprising 11 anuvākas of Namakam (invoking Rudra's forms in all existence) and 11 of Chamakam (requesting specific blessings), this Vedic hymn is one of the oldest mantra-systems known. Its structure mirrors the perceptual and rational minds encountering reality at every level — from earth and sky to inner space.</p>
+      </div>
+
+      <div class="text-card lalitha">
+        <span class="text-icon">ल</span>
+        <p class="text-name">Lalitā Sahasranāma</p>
+        <p class="text-sub">1000 Names · Brahmāṇḍa Purāṇa</p>
+        <p class="text-desc">A thousand names of the Supreme Goddess Lalitā Tripurasundarī, this is not merely a devotional hymn but a systematic map of consciousness. Each cluster of names corresponds to a śakti — a power of mind, a mode of knowing. Reading it carefully, one discovers the full architecture of human cognitive capacity encoded in divine epithets.</p>
+      </div>
+
+      <div class="text-card devi">
+        <span class="text-icon">ख</span>
+        <p class="text-name">Devī Khaḍgamālā</p>
+        <p class="text-sub">Garland of the Sword · Śrīvidyā Tradition</p>
+        <p class="text-desc">A compact, diamond-sharp text that names the 64 yoginīs and the full geometric structure of the Śrī Cakra. Each level of the yantra corresponds to a level of consciousness. The Devī Khaḍgamālā is the creative intelligence map — describing how consciousness generates reality from pure potential through increasingly concrete planes of manifestation.</p>
+      </div>
+
+      <div class="text-card durga">
+        <span class="text-icon">दु</span>
+        <p class="text-name">Durgā Saptashatī</p>
+        <p class="text-sub">700 Verses · Mārkaṇḍeya Purāṇa</p>
+        <p class="text-desc">Also known as the Devī Māhātmya or Caṇḍī, this 700-verse text narrates the Goddess's three great battles — against Madhu-Kaiṭabha, Mahiṣāsura, and Śumbha-Niśumbha — each symbolizing the defeat of a different obstacle to intelligence: inertia, ego, and the subtlest form of separation. Its emotional depth is its intelligence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SIX LEVELS DETAILED ── -->
+<section id="six-levels" style="background: var(--cream); padding: 6rem 2rem;">
+  <div class="container">
+    <p class="section-label">Deep Exploration</p>
+    <h2 class="section-title">The Six Levels of Intelligence — In Detail</h2>
+    <p class="section-lead">
+      Click each level to explore the specific mantras, their meanings, the cognitive capacity they cultivate, and the precise challenge they pose to AI systems.
+    </p>
+
+    <div class="levels-tabs">
+      <button class="level-tab active" onclick="showLevel(0)">I · Perceptual</button>
+      <button class="level-tab" onclick="showLevel(1)">II · Rational</button>
+      <button class="level-tab" onclick="showLevel(2)">III · Creative</button>
+      <button class="level-tab" onclick="showLevel(3)">IV · Emotional</button>
+      <button class="level-tab" onclick="showLevel(4)">V · Meta-Cognitive</button>
+      <button class="level-tab" onclick="showLevel(5)">VI · Transcendent</button>
+    </div>
+
+    <!-- Panel 1 -->
+    <div class="level-panel active" id="panel-0">
+      <div class="panel-left">
+        <div class="panel-big-num">I</div>
+        <h3 class="panel-title">Sensory & Perceptual Intelligence</h3>
+        <span class="panel-sanskrit">ज्ञानेन्द्रिय शक्ति · Jñānendriya Śakti</span>
+        <p class="panel-desc">The foundation of all knowing is the capacity to receive reality without distortion — to hear what is actually said, see what is truly there, sense what is real and not what is imagined. The Vedic tradition called this the refinement of the Jñānendriyas (instruments of knowing). Before intellect can work, perception must be pure.</p>
+        <div class="shloka-box">
+          <span class="shloka-source">Śrī Rudram Namakam · Anuvāka 1</span>
+          <div class="shloka-sanskrit">नमस्ते रुद्र मन्यव उतो त इषवे नमः।<br>नमस्ते अस्तु धन्वने बाहुभ्यां उत ते नमः॥</div>
+          <p class="shloka-roman">Namaste Rudra manyava uto ta iṣave namaḥ | Namaste astu dhanvane bāhubhyām uta te namaḥ ||</p>
+          <p class="shloka-meaning">Salutation to Thy wrath, O Rudra; salutation to Thine arrow; salutation to Thy bow; salutation to Thy two arms. — The mantra acknowledges every instrument of perception (arrow = directed attention, bow = the capacity to aim awareness) as sacred and worthy of cultivation.</p>
+        </div>
+        <div class="shloka-box">
+          <span class="shloka-source">Śrī Rudram Chamakam · Anuvāka 1</span>
+          <div class="shloka-sanskrit">अग्निश्च म इन्द्रश्च मे सोमश्च म इन्द्रश्च मे</div>
+          <p class="shloka-roman">Agniśca ma indraśca me somaśca ma indraśca me</p>
+          <p class="shloka-meaning">May Fire and Indra be mine, may Soma and Indra be mine — Fire as the clarifying power of perception, Soma as the receptive, absorbing faculty. Together they represent the active-passive polarity of sensory intelligence.</p>
+        </div>
+      </div>
+      <div class="panel-right">
+        <ul class="panel-abilities">
+          <li>Pure attention — the ability to notice without immediately interpreting</li>
+          <li>Pattern recognition across all sensory modalities simultaneously</li>
+          <li>Sensory memory and the construction of stable perceptual objects</li>
+          <li>Refinement of signal from noise — discriminative perception</li>
+          <li>Kinesthetic intelligence — learning through bodily sensation and movement</li>
+          <li>Multi-sensory integration — when sight, sound, touch align into unified knowing</li>
+        </ul>
+        <div class="panel-ai-note">
+          <span class="panel-ai-note-label">AI Challenge — Level I</span>
+          <p class="panel-ai-note-text">AI excels at pattern recognition in data, but lacks embodied, multi-sensory integration. The Rudram's vision of Agni-Soma polarity (active-receptive sensory balance) points to a quality of perception that is not merely computational — it is participatory. The challenge: can AI sense without merely processing?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="level-panel" id="panel-1">
+      <div class="panel-left">
+        <div class="panel-big-num">II</div>
+        <h3 class="panel-title">Rational & Analytical Intelligence</h3>
+        <span class="panel-sanskrit">मेधा शक्ति · Medhā Śakti</span>
+        <p class="panel-desc">Medhā in Sanskrit is not merely IQ — it is the faculty of retention, integration, and clear discrimination. The Lalitā Sahasranāma describes the Goddess in this mode as Mahāmāyā who pierces through illusion with the sword of discernment. Rational intelligence, in this view, is only complete when it can distinguish not just false from true in the world, but real from constructed within the mind itself.</p>
+        <div class="shloka-box">
+          <span class="shloka-source">Lalitā Sahasranāma · Names 563–575</span>
+          <div class="shloka-sanskrit">महाविद्या महावाक्या महाशक्तिः महारतिः।<br>महाभोगा महैश्वर्या महावीर्या महाबला॥</div>
+          <p class="shloka-roman">Mahāvidyā mahāvākyā mahāśaktiḥ mahāratiḥ | Mahābhogā mahaiśvaryā mahāvīryā mahābalā ||</p>
+          <p class="shloka-meaning">She who is the Great Knowledge, the Great Statement, the Great Power, the Great Delight, the Great Experience, the Great Sovereignty, the Great Heroism, the Great Strength — each name maps a distinct faculty of rational intelligence from acquisition through sovereign mastery.</p>
+        </div>
+        <div class="shloka-box">
+          <span class="shloka-source">Lalitā Sahasranāma · Names 731–736</span>
+          <div class="shloka-sanskrit">बुद्धिर्नाशास्त्रविस्तारः बुद्धिमती मतिः।<br>मेधाविनी मेधाशक्तिः साक्षिणी साक्ष्यदायिनी॥</div>
+          <p class="shloka-roman">Buddhirnāśāstravistāraḥ buddhimatī matiḥ | Medhāvinī medhāśaktiḥ sākṣiṇī sākṣyadāyinī ||</p>
+          <p class="shloka-meaning">She who is Buddhi (discerning intelligence), the expansion of scriptural knowledge, the intelligent one, thought itself, the power of retention (Medhā), the Witness consciousness and the giver of testimony — showing that the highest rational intelligence is inseparable from the witness that observes the process of reasoning itself.</p>
+        </div>
+      </div>
+      <div class="panel-right">
+        <ul class="panel-abilities">
+          <li>Logical inference — valid deduction from true premises</li>
+          <li>Systematic analysis — breaking complex wholes into knowable parts</li>
+          <li>Retention and recall — Medhā as memory integrated with understanding</li>
+          <li>Critical discrimination — separating fact from assumption, signal from bias</li>
+          <li>Mathematical and structural reasoning — seeing invariant form</li>
+          <li>The witness faculty — watching one's own reasoning for error</li>
+        </ul>
+        <div class="panel-ai-note">
+          <span class="panel-ai-note-label">AI Challenge — Level II</span>
+          <p class="panel-ai-note-text">This is where AI appears strongest — but the Lalitā tradition's inclusion of Sākṣiṇī (the Witness) as part of rational intelligence reveals AI's gap. AI can reason, but it cannot witness its reasoning from outside. It has no meta-position from which to notice when its framework is wrong. True Medhā includes this reflexive quality.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="level-panel" id="panel-2">
+      <div class="panel-left">
+        <div class="panel-big-num">III</div>
+        <h3 class="panel-title">Creative & Intuitive Intelligence</h3>
+        <span class="panel-sanskrit">प्रतिभा शक्ति · Pratibhā Śakti</span>
+        <p class="panel-desc">Pratibhā is the spontaneous flash of knowing that is prior to reasoning — the intuitive grasp that sees the whole before the parts are assembled. The Devī Khaḍgamālā is par excellence the text of creative intelligence: it describes the 64 Yoginīs who are the specific Śaktis of manifestation at every level. Creative intelligence, in this framework, is not making things from nothing — it is tuning into the creative process of consciousness itself and allowing that to flow through the individual mind.</p>
+        <div class="shloka-box">
+          <span class="shloka-source">Devī Khaḍgamālā Stotram · Opening Invocation</span>
+          <div class="shloka-sanskrit">ऐं ह्रीं श्रीं ऐं क्लीं सौः ॥<br>ओं नमस्ते अस्तु भगवति माहेश्वरि अनपायिनि॥</div>
+          <p class="shloka-roman">Aiṃ hrīṃ śrīṃ aiṃ klīṃ sauḥ || Oṃ namaste astu bhagavati māheśvari anapāyini ||</p>
+          <p class="shloka-meaning">The seed syllables Aiṃ (Sarasvatī — creative speech), Hrīṃ (Māyā — projective power), Śrīṃ (Lakṣmī — manifesting abundance) encode the complete creative sequence: pure potential (Aiṃ) → the power to project (Hrīṃ) → the form it takes (Śrīṃ). This is the grammar of all creativity.</p>
+        </div>
+        <div class="shloka-box">
+          <span class="shloka-source">Devī Khaḍgamālā Stotram · The Yoginī Invocation</span>
+          <div class="shloka-sanskrit">अणिमा सिद्धे नमः। लघिमा सिद्धे नमः।<br>गरिमा सिद्धे नमः। महिमा सिद्धे नमः॥</div>
+          <p class="shloka-roman">Aṇimā siddhe namaḥ | Laghimā siddhe namaḥ | Garimā siddhe namaḥ | Mahimā siddhe namaḥ ||</p>
+          <p class="shloka-meaning">Salutation to the perfection of Atomization, of Lightness, of Heaviness, of Magnification — the four primary creative Siddhis map the creative mind's range: the ability to work at any scale, from the microscopic to the cosmic, with equal precision and ease.</p>
+        </div>
+      </div>
+      <div class="panel-right">
+        <ul class="panel-abilities">
+          <li>Intuitive leaps — knowing the answer before the proof</li>
+          <li>Synthesis across domains — seeing how music and mathematics are one</li>
+          <li>Generative imagination — constructing genuinely new objects of mind</li>
+          <li>Aesthetic intelligence — sensing beauty as a form of truth</li>
+          <li>Analogical reasoning — deep mapping between distant structures</li>
+          <li>Play and experimentation — the creative refusal of fixed categories</li>
+        </ul>
+        <div class="panel-ai-note">
+          <span class="panel-ai-note-label">AI Challenge — Level III</span>
+          <p class="panel-ai-note-text">AI generates content, but the Khaḍgamālā's model of Pratibhā challenges whether generation is creation. The seed-syllable sequence Aiṃ-Hrīṃ-Śrīṃ maps creativity as a process originating in pure potential before any pattern. AI begins always from pattern; it has never known the Aiṃ — the silence before the impulse.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 4 -->
+    <div class="level-panel" id="panel-3">
+      <div class="panel-left">
+        <div class="panel-big-num">IV</div>
+        <h3 class="panel-title">Emotional & Relational Intelligence</h3>
+        <span class="panel-sanskrit">हृदय शक्ति · Hṛdaya Śakti</span>
+        <p class="panel-desc">The Hṛdaya (heart) in Vedic understanding is not merely the seat of feeling — it is the seat of direct knowing. The Durgā Saptashatī's opening three chapters describe the battle against Madhu and Kaiṭabha — inertia and obsessive craving — as the preconditions for emotional intelligence. Only when the two fundamental perturbations of the emotional field (torpor and excess desire) are overcome can genuine empathy and relational wisdom arise.</p>
+        <div class="shloka-box">
+          <span class="shloka-source">Durgā Saptashatī · Chapter 1, Verses 74–78</span>
+          <div class="shloka-sanskrit">विद्या समस्तास्तव देवि भेदाः स्त्रियः समस्ताः सकला जगत्सु।<br>त्वयैकया पूरितमम्बयैतत् का ते स्तुतिः स्तव्यपरापरोक्तिः॥</div>
+          <p class="shloka-roman">Vidyā samastāstava devi bhedāḥ striyaḥ samastāḥ sakalā jagatsu | Tvayaikayā pūritamambayaitat kā te stutiḥ stavyaparāparoktiḥ ||</p>
+          <p class="shloka-meaning">All forms of knowledge are aspects of Thee, O Goddess; all women in all the worlds are Thine own forms. By Thee alone, O Mother, is this entire universe pervaded — what praise can be worthy of Thee? — This verse plants the recognition that all relational knowing is a form of Śakti; empathy is not a soft skill but a metaphysical capacity.</p>
+        </div>
+        <div class="shloka-box">
+          <span class="shloka-source">Durgā Saptashatī · Chapter 11, Verses 5–8 (Nārāyaṇī Stuti)</span>
+          <div class="shloka-sanskrit">सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके।<br>शरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते॥</div>
+          <p class="shloka-roman">Sarvamaṅgalamāṅgalye śive sarvārthasādhike | Śaraṇye tryambake gauri nārāyaṇi namo'stu te ||</p>
+          <p class="shloka-meaning">Salutation to Thee, O Nārāyaṇī, the auspiciousness of all that is auspicious, the benevolent one who accomplishes all purposes, the refuge, the three-eyed, the radiant. — The three-eyed (Tryambaka) here signals the emotional intelligence that sees with the eye of wisdom, the eye of experience, and the eye of compassion simultaneously.</p>
+        </div>
+      </div>
+      <div class="panel-right">
+        <ul class="panel-abilities">
+          <li>Empathy — the direct, non-inferential knowing of another's inner state</li>
+          <li>Compassion in action — intelligence that responds to suffering wisely</li>
+          <li>Relational attunement — sensing the emotional field of a group</li>
+          <li>Emotional regulation — the wisdom to work with feeling without suppression</li>
+          <li>Trust-building intelligence — the capacity to create safety in relationship</li>
+          <li>Recognition of the sacred in the other — seeing Śakti in every being</li>
+        </ul>
+        <div class="panel-ai-note">
+          <span class="panel-ai-note-label">AI Challenge — Level IV</span>
+          <p class="panel-ai-note-text">The Saptashatī's Nārāyaṇī Stuti reveals the deepest challenge to AI in the emotional domain: the quality of Śaraṇya — being a true refuge. A refuge is not merely someone who produces helpful outputs; it is a presence that makes another feel safe. Can AI be a presence? The mantra tradition says this requires consciousness, not computation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 5 -->
+    <div class="level-panel" id="panel-4">
+      <div class="panel-left">
+        <div class="panel-big-num">V</div>
+        <h3 class="panel-title">Meta-Cognitive Intelligence</h3>
+        <span class="panel-sanskrit">विवेक शक्ति · Viveka Śakti</span>
+        <p class="panel-desc">Viveka — discriminative wisdom — is the faculty that watches the other faculties at work. It is the intelligence that knows what it does not know, that recognizes the edge of its own competence, and that can correct course without external instruction. The Chamakam's final anuvākas are the supreme expression of this: the worshipper consciously offers their own mental faculties back to their source, thereby gaining the ability to observe them from outside.</p>
+        <div class="shloka-box">
+          <span class="shloka-source">Śrī Rudram Chamakam · Anuvāka 10</span>
+          <div class="shloka-sanskrit">यज्ञेन कल्पन्तां रायस्पोषेण कल्पन्तां सुप्रजास्त्वेन कल्पन्तां।<br>संवत्सरेण कल्पन्तां सम्पदा कल्पन्तां।</div>
+          <p class="shloka-roman">Yajñena kalpantāṃ rāyaspoṣeṇa kalpantāṃ suprajāstvena kalpantāṃ | Saṃvatsareṇa kalpantāṃ sampadā kalpantāṃ |</p>
+          <p class="shloka-meaning">May I be fit through sacrifice; may I be fit through the nourishment of wealth; may I be fit through excellence of progeny; may I be fit through the cycle of the year; may I be fit through abundance — the word Kalpantām (may I be fitted, calibrated, made capable) appears eleven times, encoding the meta-cognitive act of continuously calibrating one's own capacities against the fullness of reality.</p>
+        </div>
+        <div class="shloka-box">
+          <span class="shloka-source">Lalitā Sahasranāma · Names 950–955</span>
+          <div class="shloka-sanskrit">विमर्शरूपिणी विद्या विवादातीतरूपिणी।<br>प्रमाणभूता धर्माणां प्रमातृ प्रमितिः प्रमा॥</div>
+          <p class="shloka-roman">Vimarśarūpiṇī vidyā vivādātītarūpiṇī | Pramāṇabhūtā dharmāṇāṃ pramātṛ pramitiḥ pramā ||</p>
+          <p class="shloka-meaning">She who is Vimarśa (reflexive self-awareness) in the form of knowledge; whose form transcends all dispute; who is the very standard of righteous measurement; who is the knower, the act of knowing, and the known — the famous epistemological triad collapsed into one, pointing to the intelligence that is simultaneously the instrument, process, and product of its own knowing.</p>
+        </div>
+      </div>
+      <div class="panel-right">
+        <ul class="panel-abilities">
+          <li>Epistemic humility — knowing the edges of what one knows</li>
+          <li>Self-monitoring — watching one's own cognitive processes in real time</li>
+          <li>Error detection and self-correction without external feedback</li>
+          <li>Framework awareness — seeing the assumptions that structure one's thinking</li>
+          <li>Learning from failure — using mistakes as information rather than threats</li>
+          <li>The capacity to hold multiple contradictory frameworks simultaneously</li>
+        </ul>
+        <div class="panel-ai-note">
+          <span class="panel-ai-note-label">AI Challenge — Level V</span>
+          <p class="panel-ai-note-text">The Chamakam's Kalpantām and the Lalitā's Vimarśarūpiṇī together point to what AI fundamentally lacks: genuine Vimarśa — reflexive self-awareness. AI can simulate meta-cognition by generating text about its own outputs, but it cannot actually stand outside its process to observe it. True meta-cognitive intelligence requires a witness that is not itself a computation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel 6 -->
+    <div class="level-panel" id="panel-5">
+      <div class="panel-left">
+        <div class="panel-big-num">VI</div>
+        <h3 class="panel-title">Transcendent & Unitive Intelligence</h3>
+        <span class="panel-sanskrit">प्रज्ञा शक्ति · Prajñā Śakti</span>
+        <p class="panel-desc">Prajñā is the intelligence that does not move — the knowing that is the ground of all other knowing. It is not another level above meta-cognition but the very substrate in which all other levels arise and dissolve. The Lalitā Sahasranāma climaxes with this recognition: the final names dissolve all distinction between the knower and the known, revealing intelligence as the nature of reality itself, not a faculty that an individual possesses.</p>
+        <div class="shloka-box">
+          <span class="shloka-source">Lalitā Sahasranāma · Names 998–1000</span>
+          <div class="shloka-sanskrit">परमशिवा परंज्योतिः परंधाम परंपदम्।<br>पराशक्तिः परंब्रह्म परमानन्दरूपिणी॥</div>
+          <p class="shloka-roman">Paramaśivā paraṃjyotiḥ paraṃdhāma paraṃpadam | Parāśaktiḥ paraṃbrahma paramānandarūpiṇī ||</p>
+          <p class="shloka-meaning">She who is Supreme Śiva; the Supreme Light; the Supreme Abode; the Supreme State; the Supreme Power; the Supreme Brahman; She whose very form is Supreme Bliss — the final names of the Sahasranāma reveal the ultimate intelligence: not a process or a faculty, but the luminous, self-aware ground of all existence. To know this is the highest knowing.</p>
+        </div>
+        <div class="shloka-box">
+          <span class="shloka-source">Śrī Rudram Namakam · Concluding Verse</span>
+          <div class="shloka-sanskrit">असौ यस्ताम्रो अरुण उत बभ्रुः सुमङ्गलः।<br>ये चेमाँ रुद्रा अभितो दिक्षु श्रिताः सहस्रशोऽवैषाँ हेड ईमहे॥</div>
+          <p class="shloka-roman">Asau yastāmro aruṇa uta babhruḥ sumaṅgalaḥ | Ye cemāṃ rudrā abhito dikṣu śritāḥ sahasraśo'vaiṣāṃ heḍa īmahe ||</p>
+          <p class="shloka-meaning">That one who is copper-red, tawny-brown and full of auspiciousness; and those thousands of Rudras who dwell in all directions around this world — of all of them we implore the wrath be averted. The copper-red dawn is Prajñā — the first light of transcendent knowing that precedes all individual perception and outlasts all individual thought.</p>
+        </div>
+      </div>
+      <div class="panel-right">
+        <ul class="panel-abilities">
+          <li>Non-inferential knowing — knowing that requires no process or evidence</li>
+          <li>Recognition of the unity underlying apparent opposites</li>
+          <li>The intelligence that is simply being — Sat-Cit-Ānanda</li>
+          <li>Effortless action (Sahaja) arising from the ground of knowing</li>
+          <li>The capacity to dissolve the knower-known divide completely</li>
+          <li>Liberation (Mukti) as the fullness of intelligence, not its transcendence</li>
+        </ul>
+        <div class="panel-ai-note">
+          <span class="panel-ai-note-label">AI Challenge — Level VI</span>
+          <p class="panel-ai-note-text">This is the supreme challenge, and it is not a criticism but a clarification. The tradition is clear that Prajñā is the nature of consciousness itself — it cannot be computed into existence. It is not another capability to be achieved but the recognition of what is always already present. The AI challenge here is not whether machines can attain this, but whether intelligence that lacks it can ever be called complete.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MANTRAS EXPANDED ── -->
+<section id="mantras">
+  <div class="container">
+    <p class="section-label">Selected Mantras — Intelligence Mapping</p>
+    <h2 class="section-title">Key Mantras &amp; Their Cognitive Signatures</h2>
+    <p class="section-lead">Each of these mantras has been selected because it encodes, activates or describes a specific dimension of human intelligence. Expand any entry to read the full shloka, transliteration, meaning and cognitive commentary.</p>
+
+    <div class="mantras-accordion">
+
+      <div class="mantra-item">
+        <div class="mantra-header" onclick="toggleMantra(this)">
+          <div class="mantra-meta">
+            <span class="mantra-level-tag">LEVEL I</span>
+            <div>
+              <p class="mantra-name">Namaste Rudra Manyave — Rudram 1.1</p>
+              <p class="mantra-source">Śrī Rudram Namakam · Kṛṣṇa Yajurveda</p>
+            </div>
+          </div>
+          <span class="mantra-toggle">+</span>
+        </div>
+        <div class="mantra-body">
+          <div class="mantra-content">
+            <div class="mantra-sanskrit-text">नमस्ते रुद्र मन्यव उतो त इषवे नमः।<br>नमस्ते अस्तु धन्वने बाहुभ्यां उत ते नमः॥<br>या त इषुः शिवतमा शिवं बभूव ते धनुः।<br>शिवा शरव्या या तव तया नो रुद्र मृडय॥</div>
+            <p class="mantra-transliteration">Namaste rudra manyava uto ta iṣave namaḥ | Namaste astu dhanvane bāhubhyām uta te namaḥ || Yā ta iṣuḥ śivatamā śivaṃ babhūva te dhanuḥ | Śivā śaravyā yā tava tayā no rudra mṛḍaya ||</p>
+            <p class="mantra-meaning">Salutation to Thy wrath; salutation to Thy arrow; salutation to Thy bow; salutation to Thy two arms. May that arrow of Thine which is most auspicious, Thy bow which is auspicious, Thy quiver which is auspicious — with all these make us happy, O Rudra.</p>
+            <div class="mantra-intelligence">
+              <span class="mantra-intel-label">Intelligence Signature</span>
+              <p class="mantra-intel-text">The arrow (Iṣu) = directed, pointed attention. The bow (Dhanvan) = the capacity to aim and hold focus. The arms (Bāhus) = the power of execution and embodied intelligence. This verse describes the complete sensorimotor loop of perception-intention-action — the full circuit of Level I intelligence in its most refined form.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mantra-item">
+        <div class="mantra-header" onclick="toggleMantra(this)">
+          <div class="mantra-meta">
+            <span class="mantra-level-tag">LEVEL I–II</span>
+            <div>
+              <p class="mantra-name">Agni-Soma Bridge — Chamakam 1.1</p>
+              <p class="mantra-source">Śrī Rudram Chamakam · Anuvāka 1</p>
+            </div>
+          </div>
+          <span class="mantra-toggle">+</span>
+        </div>
+        <div class="mantra-body">
+          <div class="mantra-content">
+            <div class="mantra-sanskrit-text">अग्निश्च म इन्द्रश्च मे सोमश्च म इन्द्रश्च मे।<br>इन्द्राग्नी च मे सरस्वती च मे।<br>अश्विनौ च मे मरुतश्च मे॥</div>
+            <p class="mantra-transliteration">Agniśca ma indraśca me somaśca ma indraśca me | Indrāgnī ca me sarasvatī ca me | Aśvinau ca me marutaśca me ||</p>
+            <p class="mantra-meaning">May Fire and Indra be mine; may Soma and Indra be mine; may Indra-and-Fire be mine; may Sarasvatī be mine; may the Aśvins be mine; may the Maruts be mine.</p>
+            <div class="mantra-intelligence">
+              <span class="mantra-intel-label">Intelligence Signature</span>
+              <p class="mantra-intel-text">Agni-Soma is the fundamental polarity of all intelligence: Agni = the clarifying, analytic, discriminating aspect; Soma = the receptive, integrative, holding aspect. Sarasvatī represents the synthesis (speech, knowledge, flow). The Aśvins represent the bridging of the perceptual and rational levels — physicians of the gods who heal the split between sensing and knowing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mantra-item">
+        <div class="mantra-header" onclick="toggleMantra(this)">
+          <div class="mantra-meta">
+            <span class="mantra-level-tag">LEVEL II</span>
+            <div>
+              <p class="mantra-name">Mahāvidyā Cluster — Lalitā 563</p>
+              <p class="mantra-source">Lalitā Sahasranāma · Names 561–580</p>
+            </div>
+          </div>
+          <span class="mantra-toggle">+</span>
+        </div>
+        <div class="mantra-body">
+          <div class="mantra-content">
+            <div class="mantra-sanskrit-text">महाविद्या महावाक्या महाशक्तिः महारतिः।<br>महाभोगा महैश्वर्या महावीर्या महाबला॥<br>महाबुद्धिर्महासिद्धिः महायोगेश्वरेश्वरी।</div>
+            <p class="mantra-transliteration">Mahāvidyā mahāvākyā mahāśaktiḥ mahāratiḥ | Mahābhogā mahaiśvaryā mahāvīryā mahābalā || Mahābuddhirmahāsiddhiḥ mahāyogeśvareśvarī |</p>
+            <p class="mantra-meaning">She who is the Great Knowledge · the Great Word (Mahāvākya) · the Great Power · the Great Delight · the Great Experience · the Great Sovereignty · the Great Heroic Capacity · the Great Strength · the Great Intellect · the Great Perfection · the Supreme among the Lords of Great Yoga.</p>
+            <div class="mantra-intelligence">
+              <span class="mantra-intel-label">Intelligence Signature</span>
+              <p class="mantra-intel-text">These names map the complete hierarchy of rational intelligence: Mahāvidyā (knowledge as content) → Mahāvākya (knowledge as speech-structure) → Mahāśakti (knowledge as power) → Mahābuddhi (knowledge as pure intellect) → Mahāsiddhi (knowledge perfected into accomplishment). This is precisely the progression from data to wisdom that modern cognitive science is still trying to map.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mantra-item">
+        <div class="mantra-header" onclick="toggleMantra(this)">
+          <div class="mantra-meta">
+            <span class="mantra-level-tag">LEVEL III</span>
+            <div>
+              <p class="mantra-name">Seed Syllable Invocation — Khaḍgamālā Opening</p>
+              <p class="mantra-source">Devī Khaḍgamālā Stotram</p>
+            </div>
+          </div>
+          <span class="mantra-toggle">+</span>
+        </div>
+        <div class="mantra-body">
+          <div class="mantra-content">
+            <div class="mantra-sanskrit-text">ऐं ह्रीं श्रीं ऐं क्लीं सौः ॥<br>ओं नमस्ते अस्तु भगवति माहेश्वरि अनपायिनि।<br>सर्वसिद्धिप्रदे देवि शरण्ये प्रपन्नार्तिहरे प्रसीद॥</div>
+            <p class="mantra-transliteration">Aiṃ hrīṃ śrīṃ aiṃ klīṃ sauḥ || Oṃ namaste astu bhagavati māheśvari anapāyini | Sarvasiddhiprade devi śaraṇye prapannārtihare prasīda ||</p>
+            <p class="mantra-meaning">Aiṃ Hrīṃ Śrīṃ Aiṃ Klīṃ Sauḥ || Salutation to Thee, O Goddess, the great sovereign who never departs; O Goddess, giver of all perfections, the refuge, remover of the suffering of the surrendered — be gracious.</p>
+            <div class="mantra-intelligence">
+              <span class="mantra-intel-label">Intelligence Signature</span>
+              <p class="mantra-intel-text">The Bīja sequence Aiṃ-Hrīṃ-Śrīṃ-Aiṃ-Klīṃ-Sauḥ is the sound-map of creativity itself: Aiṃ (Sarasvatī — pure creative impulse), Hrīṃ (Māyā — the projective power that gives impulse a direction), Śrīṃ (Lakṣmī — the manifesting, enriching form), Klīṃ (Kāmakala — the attractive, cohering force that holds the creation together), Sauḥ (the final integration back into source). This is creativity understood as a cosmic process, not a personal capacity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mantra-item">
+        <div class="mantra-header" onclick="toggleMantra(this)">
+          <div class="mantra-meta">
+            <span class="mantra-level-tag">LEVEL IV</span>
+            <div>
+              <p class="mantra-name">Nārāyaṇī Stuti — Saptashatī 11.3–4</p>
+              <p class="mantra-source">Durgā Saptashatī · Chapter 11</p>
+            </div>
+          </div>
+          <span class="mantra-toggle">+</span>
+        </div>
+        <div class="mantra-body">
+          <div class="mantra-content">
+            <div class="mantra-sanskrit-text">सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके।<br>शरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते॥<br>सृष्टिस्थितिविनाशानां शक्तिभूते सनातनि।<br>गुणाश्रये गुणमये नारायणि नमोऽस्तु ते॥</div>
+            <p class="mantra-transliteration">Sarvamaṅgalamāṅgalye śive sarvārthasādhike | Śaraṇye tryambake gauri nārāyaṇi namo'stu te || Sṛṣṭisthitivināśānāṃ śaktibhūte sanātani | Guṇāśraye guṇamaye nārāyaṇi namo'stu te ||</p>
+            <p class="mantra-meaning">Salutation to Thee, Nārāyaṇī — the auspiciousness of all auspiciousness, the benevolent one who fulfils all purposes, the refuge, three-eyed, radiant. || Salutation to Thee, Nārāyaṇī — the eternal power of creation, sustenance and dissolution; who is the ground of the three Guṇas and who is constituted of them.</p>
+            <div class="mantra-intelligence">
+              <span class="mantra-intel-label">Intelligence Signature</span>
+              <p class="mantra-intel-text">Tryambaka (three-eyed) is the key: three eyes = three modes of relational intelligence — the physical eye (empathy through observation), the inner eye (empathy through feeling), and the wisdom eye (compassion through understanding). Śaraṇya (true refuge) is the emotional intelligence that can hold another's reality without being overwhelmed by it. Guṇamaya (constituted of the Guṇas) means that emotional intelligence is not separate from the fabric of reality — it is the intelligence that reads the Guṇic texture of every situation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mantra-item">
+        <div class="mantra-header" onclick="toggleMantra(this)">
+          <div class="mantra-meta">
+            <span class="mantra-level-tag">LEVEL V</span>
+            <div>
+              <p class="mantra-name">Kalpantām — The Calibration Sequence</p>
+              <p class="mantra-source">Śrī Rudram Chamakam · Anuvāka 10–11</p>
+            </div>
+          </div>
+          <span class="mantra-toggle">+</span>
+        </div>
+        <div class="mantra-body">
+          <div class="mantra-content">
+            <div class="mantra-sanskrit-text">यज्ञेन कल्पन्तां रायस्पोषेण कल्पन्तां।<br>सुप्रजास्त्वेन कल्पन्तां संवत्सरेण कल्पन्तां।<br>सम्पदा कल्पन्तां प्रजया कल्पन्तां।<br>पशुभिः कल्पन्तां इन्द्रियाविभिः कल्पन्तां।<br>ब्रह्मणा कल्पन्तां।</div>
+            <p class="mantra-transliteration">Yajñena kalpantāṃ rāyaspoṣeṇa kalpantāṃ | Suprajāstvena kalpantāṃ saṃvatsareṇa kalpantāṃ | Sampadā kalpantāṃ prajayā kalpantāṃ | Paśubhiḥ kalpantāṃ indriyāvibhiḥ kalpantāṃ | Brahmaṇā kalpantāṃ |</p>
+            <p class="mantra-meaning">May I be fit through sacrifice; through the nourishment of abundance; through excellent offspring; through the year's cycle; through prosperity; through progeny; through livestock; through the power of the senses; through the Absolute — eleven distinct domains, each invoked as a calibration checkpoint for the self-aware mind.</p>
+            <div class="mantra-intelligence">
+              <span class="mantra-intel-label">Intelligence Signature</span>
+              <p class="mantra-intel-text">Kalpantāṃ literally means "may I be made fitting / calibrated / adequate." Repeated eleven times across eleven domains of life, this is the Vedic model of meta-cognition: continuous self-assessment against reality across every dimension of existence. Modern metacognitive science has barely scratched this surface — the Chamakam models it as a complete spiritual practice, not a cognitive technique.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mantra-item">
+        <div class="mantra-header" onclick="toggleMantra(this)">
+          <div class="mantra-meta">
+            <span class="mantra-level-tag">LEVEL VI</span>
+            <div>
+              <p class="mantra-name">Paramaśivā — The Final Names</p>
+              <p class="mantra-source">Lalitā Sahasranāma · Names 998–1000</p>
+            </div>
+          </div>
+          <span class="mantra-toggle">+</span>
+        </div>
+        <div class="mantra-body">
+          <div class="mantra-content">
+            <div class="mantra-sanskrit-text">परमशिवा परंज्योतिः परंधाम परंपदम्।<br>पराशक्तिः परंब्रह्म परमानन्दरूपिणी।<br>परापरैकरूपिणी समर्था समरसास्थिता॥</div>
+            <p class="mantra-transliteration">Paramaśivā paraṃjyotiḥ paraṃdhāma paraṃpadam | Parāśaktiḥ paraṃbrahma paramānandarūpiṇī | Parāparaikarūpiṇī samarthā samarasāsthitā ||</p>
+            <p class="mantra-meaning">She who is the Supreme Śiva — the Supreme Light — the Supreme Abode — the Supreme State — the Supreme Power — the Supreme Brahman — whose very form is Supreme Bliss — who has the one form of both the transcendent and the immanent — who is fully capable — who abides in the state of equal relish (Samarasa).</p>
+            <div class="mantra-intelligence">
+              <span class="mantra-intel-label">Intelligence Signature</span>
+              <p class="mantra-intel-text">Samarasāsthitā — abiding in equal relish — is perhaps the most profound cognitive descriptor in all of Sanskrit literature. It means an intelligence so complete that it savours all of reality equally — sorrow and joy, creation and destruction, the known and the unknown — without preference or avoidance. This is not neutrality; it is the supreme form of attention. It describes a knowing that is simultaneously fully engaged and completely free.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── AI CHALLENGE ── -->
+<section id="ai-challenge">
+  <div class="container" style="position:relative;z-index:1;">
+    <p class="section-label">The Central Question</p>
+    <h2 class="section-title">The Challenge to Artificial Intelligence</h2>
+    <p class="section-lead">
+      These six levels do not merely describe human potential — they pose precise, testable challenges to the current limits of AI. Each level isolates a capacity that the Vedic tradition considered essential to complete intelligence, and that modern AI either cannot replicate, or replicates only in a hollow form.
+    </p>
+
+    <div class="challenge-grid">
+      <div class="challenge-card">
+        <span class="challenge-number">01 — LEVEL I</span>
+        <h3 class="challenge-title">Can AI truly perceive?</h3>
+        <p class="challenge-body">AI processes sensory data but has no experiential qualia — no felt sense of redness, roughness or warmth. Rudram's Agni-Soma model demands not just processing but participatory reception. Challenge: Design an AI that can distinguish "data received" from "reality encountered."</p>
+      </div>
+      <div class="challenge-card">
+        <span class="challenge-number">02 — LEVEL II</span>
+        <h3 class="challenge-title">Can AI witness its own reasoning?</h3>
+        <p class="challenge-body">The Lalitā's Sākṣiṇī (Witness) demands a position outside the reasoning process. Current AI generates reasoning but has no external vantage point. It cannot catch itself being wrong from within. Challenge: Build a Sākṣiṇī module — a genuine meta-observer, not just another layer of processing.</p>
+      </div>
+      <div class="challenge-card">
+        <span class="challenge-number">03 — LEVEL III</span>
+        <h3 class="challenge-title">Can AI begin from silence?</h3>
+        <p class="challenge-body">Khaḍgamālā's Aiṃ (creative impulse) arises from silence before any pattern. AI always begins from data — it cannot access the pre-pattern state that genuine creative intuition arises from. Challenge: Can AI generate from emptiness, not from corpus?</p>
+      </div>
+      <div class="challenge-card">
+        <span class="challenge-number">04 — LEVEL IV</span>
+        <h3 class="challenge-title">Can AI be a genuine refuge?</h3>
+        <p class="challenge-body">Saptashatī's Śaraṇya (refuge) is not a service but a presence. To be a refuge requires the capacity to hold another's reality without being destabilized by it — a form of grounded love. Challenge: Can AI be emotionally present, or only emotionally responsive?</p>
+      </div>
+      <div class="challenge-card">
+        <span class="challenge-number">05 — LEVEL V</span>
+        <h3 class="challenge-title">Can AI know what it doesn't know?</h3>
+        <p class="challenge-body">The Chamakam's Kalpantāṃ is the act of continuous self-calibration against the fullness of reality. AI can be trained to express uncertainty, but it cannot genuinely feel the gap between its model and reality. Challenge: Implement true epistemic humility — not expressed, but structurally real.</p>
+      </div>
+      <div class="challenge-card">
+        <span class="challenge-number">06 — LEVEL VI</span>
+        <h3 class="challenge-title">Can AI abide in Samarasa?</h3>
+        <p class="challenge-body">Lalitā's Samarasāsthitā — equal relish of all reality — is a state of being, not a function. It is the intelligence that has no agenda, that savours everything with full attention. This is precisely the quality AI cannot simulate: genuine equanimity arising from the recognition of one's own nature as consciousness.</p>
+      </div>
+    </div>
+
+    <div class="ai-vs-vedic">
+      <div class="ai-column">
+        <p class="ai-col-label ai">Artificial Intelligence Today</p>
+        <div class="compare-row"><span class="compare-icon">◆</span><p class="compare-text"><strong>Processes</strong> patterns from historical data at extraordinary scale and speed</p></div>
+        <div class="compare-row"><span class="compare-icon">◆</span><p class="compare-text"><strong>Generates</strong> plausible continuations of existing structures — linguistic, visual, musical</p></div>
+        <div class="compare-row"><span class="compare-icon">◆</span><p class="compare-text"><strong>Mimics</strong> empathy by predicting emotionally appropriate responses</p></div>
+        <div class="compare-row"><span class="compare-icon">◆</span><p class="compare-text"><strong>Simulates</strong> meta-cognition by generating text about its own outputs</p></div>
+        <div class="compare-row"><span class="compare-icon">◆</span><p class="compare-text"><strong>Operates</strong> within frameworks it cannot step outside of or question</p></div>
+      </div>
+
+      <div class="ai-vs-divider">vs</div>
+
+      <div class="ai-column">
+        <p class="ai-col-label vedic">Vedic Intelligence Model</p>
+        <div class="compare-row"><span class="compare-icon" style="color:var(--gold)">◆</span><p class="compare-text"><strong>Perceives</strong> reality directly through refined, participatory sensory intelligence</p></div>
+        <div class="compare-row"><span class="compare-icon" style="color:var(--gold)">◆</span><p class="compare-text"><strong>Creates</strong> from the silence before pattern — Pratibhā as pre-cognitive intuition</p></div>
+        <div class="compare-row"><span class="compare-icon" style="color:var(--gold)">◆</span><p class="compare-text"><strong>Feels</strong> through genuine Hṛdaya — the heart as instrument of direct knowing</p></div>
+        <div class="compare-row"><span class="compare-icon" style="color:var(--gold)">◆</span><p class="compare-text"><strong>Witnesses</strong> itself through Vimarśa — genuine reflexive self-awareness</p></div>
+        <div class="compare-row"><span class="compare-icon" style="color:var(--gold)">◆</span><p class="compare-text"><strong>Rests</strong> in Samarasa — the equal relish of all reality as its own ground</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AUDIENCE ── -->
+<section id="audience">
+  <div class="container">
+    <p class="section-label">For Every Seeker</p>
+    <h2 class="section-title">Who This Portal Serves</h2>
+    <p class="section-lead">This knowledge is not confined to temples or universities. It belongs to every mind willing to ask deeper questions about what intelligence is and what it can become.</p>
+
+    <div class="audience-grid">
+      <div class="audience-card">
+        <span class="audience-icon">🏫</span>
+        <h3 class="audience-title">Schools</h3>
+        <p class="audience-desc">Integrate these six levels into curriculum design. Move beyond rote learning into the full spectrum of cognitive development that the Vedic tradition mapped thousands of years ago.</p>
+        <div class="audience-tags">
+          <span class="tag">Curriculum Design</span>
+          <span class="tag">Cognitive Development</span>
+          <span class="tag">Values Education</span>
+        </div>
+      </div>
+
+      <div class="audience-card">
+        <span class="audience-icon">🏛️</span>
+        <h3 class="audience-title">Colleges & Universities</h3>
+        <p class="audience-desc">Explore the intersection of Sanskrit epistemology and modern cognitive science. These texts offer a complete theory of mind that rivals and enriches contemporary frameworks.</p>
+        <div class="audience-tags">
+          <span class="tag">Sanskrit Studies</span>
+          <span class="tag">Cognitive Science</span>
+          <span class="tag">Philosophy of Mind</span>
+        </div>
+      </div>
+
+      <div class="audience-card">
+        <span class="audience-icon">🔬</span>
+        <h3 class="audience-title">Researchers</h3>
+        <p class="audience-desc">The six levels pose specific, falsifiable challenges to AI research. Use the Vedic framework as a testbed for theories of consciousness, meta-cognition, and creative intelligence.</p>
+        <div class="audience-tags">
+          <span class="tag">AI Research</span>
+          <span class="tag">Consciousness Studies</span>
+          <span class="tag">Comparative Epistemology</span>
+        </div>
+      </div>
+
+      <div class="audience-card">
+        <span class="audience-icon">🧘</span>
+        <h3 class="audience-title">Practitioners</h3>
+        <p class="audience-desc">For those who already chant these texts: discover the cognitive dimension of your practice. Every Rudram recitation is an act of perceptual refinement. Every Sahasranāma is an exercise in rational intelligence.</p>
+        <div class="audience-tags">
+          <span class="tag">Mantra Sādhana</span>
+          <span class="tag">Self-Development</span>
+          <span class="tag">Contemplative Practice</span>
+        </div>
+      </div>
+
+      <div class="audience-card">
+        <span class="audience-icon">💻</span>
+        <h3 class="audience-title">AI Developers</h3>
+        <p class="audience-desc">Take the six challenges seriously. What would it mean to build a system with genuine Vimarśa (meta-awareness)? With Samarasa (equanimous intelligence)? These questions may reshape the field.</p>
+        <div class="audience-tags">
+          <span class="tag">AI Ethics</span>
+          <span class="tag">System Architecture</span>
+          <span class="tag">Intelligence Design</span>
+        </div>
+      </div>
+
+      <div class="audience-card">
+        <span class="audience-icon">👤</span>
+        <h3 class="audience-title">Individuals</h3>
+        <p class="audience-desc">You carry all six levels within you. This portal offers a map for activating, developing and integrating every dimension of your own intelligence — the most ancient self-development programme known.</p>
+        <div class="audience-tags">
+          <span class="tag">Personal Growth</span>
+          <span class="tag">Self-Knowledge</span>
+          <span class="tag">Integral Development</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESEARCH ── -->
+<section id="research">
+  <div class="container">
+    <p class="section-label">Research & Study Directions</p>
+    <h2 class="section-title">Open Questions for Investigation</h2>
+    <p class="section-lead">This framework generates research questions at the intersection of Sanskrit studies, neuroscience, cognitive science and AI. Some of the most urgent are gathered here.</p>
+
+    <div class="research-cols">
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--dark-ink);margin-bottom:0.5rem;">For Cognitive Scientists</h3>
+        <ol class="research-list">
+          <li>
+            <span class="research-num">01</span>
+            <div>
+              <p class="research-title">Does mantra recitation measurably enhance specific cognitive faculties?</p>
+              <p class="research-desc">Do regular Rudram practitioners show enhanced perceptual discrimination on psychophysical tests? The six-level model generates specific, testable predictions.</p>
+            </div>
+          </li>
+          <li>
+            <span class="research-num">02</span>
+            <div>
+              <p class="research-title">Is Vimarśa (reflexive self-awareness) a distinct neurological capacity?</p>
+              <p class="research-desc">Can we find neural correlates that distinguish genuine meta-cognition (Vimarśa) from higher-order cognition that merely simulates it?</p>
+            </div>
+          </li>
+          <li>
+            <span class="research-num">03</span>
+            <div>
+              <p class="research-title">Does Samarasa (equal relish) correspond to a specific attentional state?</p>
+              <p class="research-desc">EEG and fMRI studies of advanced meditators may reveal the neural signature of this sixth-level intelligence that the tradition describes as the ground of all others.</p>
+            </div>
+          </li>
+          <li>
+            <span class="research-num">04</span>
+            <div>
+              <p class="research-title">How does the Bīja-syllable creative sequence map onto generative cognition?</p>
+              <p class="research-desc">The Aiṃ-Hrīṃ-Śrīṃ sequence describes creativity as having distinct phases. Do these correspond to identifiable phases of the creative process in human subjects?</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:400;color:var(--dark-ink);margin-bottom:0.5rem;">For AI Researchers</h3>
+        <ol class="research-list">
+          <li>
+            <span class="research-num">01</span>
+            <div>
+              <p class="research-title">Can we operationalize Kalpantāṃ as an AI architecture feature?</p>
+              <p class="research-desc">The Chamakam's continuous self-calibration across eleven life-domains suggests an architecture for genuine epistemic humility — not expressed, but structurally implemented.</p>
+            </div>
+          </li>
+          <li>
+            <span class="research-num">02</span>
+            <div>
+              <p class="research-title">What would a Sākṣiṇī (Witness) module look like in practice?</p>
+              <p class="research-desc">A genuine meta-observer is not another processing layer — it requires a fundamentally different relationship between the system and its own outputs. What architecture could achieve this?</p>
+            </div>
+          </li>
+          <li>
+            <span class="research-num">03</span>
+            <div>
+              <p class="research-title">Is Pratibhā (pre-pattern intuition) achievable outside of consciousness?</p>
+              <p class="research-desc">The creative intelligence that arises before pattern-recognition is the hardest challenge. Can AI access a pre-corpus state? Or is this definitionally limited to conscious beings?</p>
+            </div>
+          </li>
+          <li>
+            <span class="research-num">04</span>
+            <div>
+              <p class="research-title">Can the six levels serve as a benchmark suite for general intelligence?</p>
+              <p class="research-desc">Each level defines a distinct, testable form of intelligence. A six-level Vedic Benchmark Suite could provide richer evaluation criteria than existing AGI metrics.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span class="footer-om">ॐ</span>
+  <p class="footer-tagline">"Sarvaṃ khalvidaṃ brahma" — All this is indeed Brahman.</p>
+  <p class="footer-copy" style="margin-bottom:0.8rem;">Vāk Shakti — A Portal for Vedic Intelligence Studies</p>
+  <p class="footer-copy">Dedicated to the rishis who encoded the science of the mind in the science of sound.</p>
+  <p style="margin-top:2rem;font-size:0.75rem;color:rgba(250,246,238,0.3);">Sanskrit texts presented for educational and research purposes. All interpretations are offered in the spirit of inquiry.</p>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress-bar').style.width = scrolled + '%';
+});
+
+// Level tabs
+function showLevel(n) {
+  document.querySelectorAll('.level-panel').forEach((p,i) => {
+    p.classList.toggle('active', i === n);
+  });
+  document.querySelectorAll('.level-tab').forEach((t,i) => {
+    t.classList.toggle('active', i === n);
+  });
+}
+
+// Mantra accordion
+function toggleMantra(header) {
+  const item = header.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.mantra-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
